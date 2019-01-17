@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spering_work:war">
+    <output-path>$PROJECT_DIR$/mavenweb/target</output-path>
+    <root id="archive" name="maven-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="spering_work:war exploded" />
+    </root>
+  </artifact>
+</component>

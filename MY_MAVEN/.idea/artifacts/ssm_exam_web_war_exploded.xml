@@ -1,0 +1,30 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ssm_exam_web:war exploded">
+    <output-path>$PROJECT_DIR$/ssm_exam/ssm_exam_web/target/ssm_exam_web-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ssm_exam_web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="ssm_exam_service-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ssm_exam_service" />
+          </element>
+          <element id="archive" name="ssm_exam_dao-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ssm_exam_dao" />
+          </element>
+          <element id="archive" name="ssm_exam_pojo-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ssm_exam_pojo" />
+          </element>
+          <element id="archive" name="ssm_exam_utils-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ssm_exam_utils" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ssm_exam/ssm_exam_web/target/ssm_exam_web-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ssm_exam_web/web/Web" />
+    </root>
+  </artifact>
+</component>

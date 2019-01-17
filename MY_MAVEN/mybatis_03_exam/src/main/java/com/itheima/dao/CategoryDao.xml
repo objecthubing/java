@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.CategoryDao">
+
+    <!--查询所有分类信息,分类中包含线路-->
+    <resultMap id="category" type="category" autoMapping="true">
+        <!--配置一对多映射-->
+        <collection property="route" ofType="route" autoMapping="true">
+        </collection>
+    </resultMap>
+    <select id="findAllWithRoutes" resultMap="category">
+          select tc.cid,tc.cname,tr.rname from tab_route tr INNER JOIN tab_category tc ON tr.cid = tc.cid
+    </select>
+
+    <!--根据分类id查询分类,分类中包含线路信息-->
+    <select id="findByCidWithRoutes" resultMap="category" parameterType="int">
+        SELECT  * from tab_route tr,tab_category tc where tc.cid=tr.cid AND tr.rid =#{rid}
+    </select>
+</mapper>

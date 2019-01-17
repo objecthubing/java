@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--配置真实对象-->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"></bean>
+
+    <!--配置通知-->
+    <bean id="logger" class="com.itheima.utils.Logger"></bean>
+
+    <!--配置Aop-->
+    <aop:config>
+        <!--配置aop切面-->
+        <!--<aop:pointcut id="" expression=""></aop:pointcut>-->
+        <aop:aspect id="logadvice" ref="logger">
+            <aop:before method="beforePrintLog" pointcut="execution(* com.itheima.service..*.*(..))"></aop:before>
+        </aop:aspect>
+    </aop:config>
+
+
+
+</beans>

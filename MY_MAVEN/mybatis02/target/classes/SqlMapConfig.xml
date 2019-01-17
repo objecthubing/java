@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--属性配置:
+       resource:加载类路径下的配置文件
+       url:加载一个外部的资源文件
+   -->
+    <properties resource="db.properties"></properties>
+
+    <!--别名配置:实体类-->
+    <typeAliases>
+        <!--配置单个类的别名
+        <typeAlias type="com.itheima.domainin.Category" alias="category"></typeAlias>
+        -->
+        <!--批量配置别名 : 别名就是类的名称-->
+        <package name="com.itheima.domain.User"></package>
+    </typeAliases>
+
+    <!--数据库环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"></property>
+                <property name="url" value="${jdbc.url}"></property>
+                <property name="username" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--映射文件配置-->
+    <mappers>
+        <!--单个映射配置
+        <mapper resource=""></mapper>
+        注解配置-->
+         <mapper class="com.itheima.dao.UserDao"></mapper>
+
+        <!--批量映射配置-->
+        <!--<package name="com.itheima.dao"></package>-->
+    </mappers>
+</configuration>

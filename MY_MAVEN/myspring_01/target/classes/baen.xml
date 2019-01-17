@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--那些类的对象,需要spring来创建-->
+    <!--id:随意(接口名称) class:-->
+    <bean id="userDao" class="com.itheima.dao.Impl.UserDaoImpl"></bean>
+    <bean id="userService" class="com.itheima.service.Impl.UserServiceImpl"></bean>
+    <!--<domain id="userService" factory-domain="userService" factory-method=""></domain>-->
+    <bean id="row" class="java.util.Date"></bean>
+    <bean id="user" class="com.itheima.domain.User">
+        <constructor-arg name="username" value="朱欧"></constructor-arg>
+        <constructor-arg name="adress" value="长城科技园"></constructor-arg>
+        <constructor-arg name="birthday" ref="row"></constructor-arg>
+        <constructor-arg name="sex" value="男"></constructor-arg>
+    </bean>
+</beans>

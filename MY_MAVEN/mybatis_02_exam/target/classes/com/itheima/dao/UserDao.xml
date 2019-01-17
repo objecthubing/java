@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.UserDao">
+    <!--查询所有-->
+    <select id="findAll" resultType="User">
+          select * from tab_user
+    </select>
+
+    <!--添加用户-->
+    <insert id="add" parameterType="com.itheima.domain.User">
+        <!-- 配置保存时获取插入的id -->
+        <selectKey keyColumn="uid" keyProperty="uid" resultType="int">
+            select last_insert_id();
+        </selectKey>
+        insert into tab_user
+        values(NULL,#{username},#{password},#{name},#{birthday},#{sex},#{telephone},#{email},#{status},#{code})
+    </insert>
+
+    <!--更新用户-->
+    <update id="update" parameterType="com.itheima.domain.User">
+        update tab_user
+        <set>
+            <if test="username!=null and username!=''">
+                username=#{username},
+            </if>
+            <if test="password!=null and password!=''">
+                password=#{password},
+            </if>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="birthday!=null and birthday!=''">
+                birthday=#{birthday},
+            </if>
+            <if test="sex!=null and sex!=''">
+                sex=#{sex},
+            </if>
+            <if test="telephone!=null and telephone!=''">
+                telephone=#{telephone},
+            </if>
+            <if test=" email!=null and  email!=''">
+                email=#{email},
+            </if>
+            <if test="status!=null and  status!=''">
+                status=#{status},
+            </if>
+            <if test="code!=null and  code!=''">
+                code=#{code},
+            </if>
+        </set>
+        where uid=#{uid}
+    </update>
+
+    <!--根据条件模糊查询-->
+    <select id="findByName" resultType="user" parameterType="user">
+        select * from tab_user
+        <where>
+            <if test="password!=null and password != ''">
+                and password like #{password}
+            </if>
+            <if test="username!=null and username != ''">
+                and username like #{username}
+            </if>
+            <if test="name!=null and name != ''">
+                and name like #{name}
+            </if>
+            <if test="sex!=null and sex!= ''">
+                and sex like #{sex}
+            </if>
+        </where>
+    </select>
+
+</mapper>

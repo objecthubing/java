@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.RouteDao">
+    <!--根据更新数据 - 对象中有数据的属性更新为新数据  没有数据的属性不更新-->
+    <update id="update" parameterType="route">
+        update tab_route
+        <set>
+            <if test="rname!=null and rname!=''">
+                rname=#{rname},
+            </if>
+            <if test="price!=null and price!=''">
+                price=#{price},
+            </if>
+            <if test="routeIntroduce!=null and routeIntroduce!=''">
+                routeIntroduce=#{routeIntroduce},
+            </if>
+            <if test="rflag!=null and rflag!=''">
+                rflag=#{rflag},
+            </if>
+            <if test="rdate!=null and rdate!=''">
+                rdate=#{rdate},
+            </if>
+            <if test="isThemeTour!=null and isThemeTour!=''">
+                isThemeTour=#{isThemeTour},
+            </if>
+            <if test="count!=null and count!=''">
+                count=#{count},
+            </if>
+            <if test="cid!=null and cid!=''">
+                cid=#{cid},
+            </if>
+            <if test="rimage!=null and rimage!=''">
+                rimage=#{rimage},
+            </if>
+            <if test="sid!=null and sid!=''">
+                sid=#{sid},
+            </if>
+            <if test="sourceId!=null and sourceId!=''">
+                sourceId=#{sourceId},
+            </if>
+        </set>
+        where rid = #{rid}
+    </update>
+
+    <!--根据传入的id数组删除线路-->
+    <delete id="deleteByIds" parameterType="java.lang.Integer">
+        delete from tab_route where rid
+            <foreach collection="list" open=" in ( " close=" )" separator=" ," item="id">
+                #{id}
+            </foreach>
+    </delete>
+
+    <!--根据id查询数据-->
+    <select id="findByIds" resultType="route" parameterType="int">
+        select * from tab_route where rid
+            <foreach collection="array" open="in (" close=" )" separator=" ," item="rid">
+                #{rid}
+            </foreach>
+    </select>
+
+    <!--根据条件查询线路数据-->
+    <select id="findByCondition" resultType="route" parameterType="com.itheima.domain.Condition">
+        select * from tab_route 
+        <where>
+            <if test="cid!=null and cid!=''">
+                and cid = #{cid}
+            </if>
+            <if test=" rname!=null and  rname!=''">
+                and  rname like #{ rname}
+            </if>
+            <if test="minPrice!=null and minPrice!=''">
+                and price between #{minPrice}
+            </if>
+            <if test="maxPrice!=null and maxPrice!=''">
+                and #{maxPrice}
+            </if>
+        </where>
+    </select>
+
+    <!--查询所有的线路-线路中包含商家信息-->
+    <!--定义结果集映射-->
+        <resultMap id="RouteMap" type="seller" autoMapping="true">
+            <!--<id column="sid" property="sid"></id>
+            <id column="sname" property="sname"></id>
+            <id column="consphone" property="consphone"></id>
+            <id column="address" property="address"></id>-->
+      <!--配对route的参数-->
+            <collection property="route" ofType="Route">
+                <result column="cid" property="cid"></result>
+            </collection>
+        </resultMap>
+    <select id="findAllWithSeller" resultMap="RouteMap">
+          select s.* ,r.rid,r.rname from tab_seller s,tab_route r WHERE s.sid=r.sid
+    </select>
+    <!--查询所有的线路线路中包含分类图片信息和经销商信息-->
+    <!--配置结果映射-->
+    <resultMap id="RouteMap1" type="Route" autoMapping="true">
+        <!--配置一对多-->
+       <!-- <association property="seller" column="sid" select="com.itheima.dao.SellerDao.findById">
+        </association>-->
+        <collection property="seller" ofType="seller" autoMapping="true"></collection>
+
+        <collection property="category" ofType="category" autoMapping="true"></collection>
+        <!--<collection property="seller" ofType="seller" autoMapping="true"></collection>-->
+    </resultMap>
+    <select id="findByRidWithImgsAndSeller" resultMap="RouteMap1"  parameterType="java.lang.Integer">
+          SELECT * FROM tab_route r,tab_category c ,tab_seller s  WHERE r.cid=c.cid AND r.sid = s.sid AND rid =#{rid}
+    </select>
+
+    <!---->
+</mapper>

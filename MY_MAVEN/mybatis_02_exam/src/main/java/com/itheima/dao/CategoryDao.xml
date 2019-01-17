@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.CategoryDao">
+    <!--查询所有分类数据-->
+    <select id="findAll" resultType="com.itheima.domain.Category">
+          select * from tab_category
+    </select>
+
+    <!--添加一条分类数据-->
+    <insert id="add"  parameterType="com.itheima.domain.Category">
+        <!--返回主键-->
+        <selectKey keyProperty="cid" keyColumn="cid" order="AFTER" resultType="int">
+            select  last_insert_id();
+        </selectKey>
+        insert into tab_category values (NULL ,#{cname})
+    </insert>
+
+    <!--根据分类ID,更新分类数据-->
+    <update id="update" parameterType="com.itheima.domain.Category">
+        update tab_category set cname = #{cname} where cid = #{cid}
+    </update>
+    
+    <!--根据id删除分类-->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from tab_category where cid = #{cid}
+    </delete>
+</mapper>

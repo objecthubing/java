@@ -1,0 +1,12 @@
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\service\GoodsService.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\domain\Goods.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\service\Impl\GoodsServiceImpl.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\domain\ResultInfo.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\service\CategoryService.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\web\CategoryController.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\domain\Category.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\service\Impl\CategoryServiceImpl.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\utils\JdbcUtils.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\dao\CategoryDao.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\dao\GoodsDao.java
+D:\IdeaProjects\MY_MAVEN\springwork\src\main\java\com\itheima\web\GoodsController.java

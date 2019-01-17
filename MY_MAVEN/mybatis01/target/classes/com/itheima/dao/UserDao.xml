@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace:名称空间 ;属性值是接口的完全限定名称-->
+<mapper namespace="com.itheima.dao.UserDao">
+    <!--配置查询所有:id:必须是接口中的方法名称
+                    resultType:封装的结果类型-->
+    <select id="findAll" resultType="com.itheima.domain.User">
+        select * from user
+    </select>
+
+    <!--用户添加-->
+    <insert id="add" parameterType="com.itheima.domain.User">
+
+        insert into user values(null,#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <!--用户修改-->
+    <update id="update" parameterType="com.itheima.domain.User">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+    
+    <!--删除用户-->
+    <delete id="delete" parameterType="Integer">
+        delete from user where id = #{id}
+    </delete>
+
+    <!--查询单个用户-->
+    <select id="findById" resultType="com.itheima.domain.User" parameterType="Integer">
+        select * from user where id = #{id}
+    </select>
+
+    <!--模糊查询-->
+    <select id="findByName" resultType="com.itheima.domain.User" parameterType="String">
+        <!--底层使用预编译sql语句,占位符,建议使用-->
+        select * from user where username like #{username}
+        <!--底层使用字符串拼接,-->
+        <!--select * from user where username like '%${value }%'-->
+    </select>
+
+    <!--查询用户总个数-->
+    <select id="findCount" resultType="Integer">
+        select count(*) from user
+    </select>
+</mapper>

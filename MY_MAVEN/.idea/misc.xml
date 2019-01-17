@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/maven_parent/maven_web" />
+    <file type="web" url="file://$PROJECT_DIR$/mavenweb" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC_01_base" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC_01_exam" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC_01_exam1" />
+    <file type="web" url="file://$PROJECT_DIR$/springmvc_myday01" />
+    <file type="web" url="file://$PROJECT_DIR$/springwork" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm_exam/ssm_exam_web" />
+    <file type="web" url="file://$PROJECT_DIR$/../travel" />
+    <type id="Spring" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/maven01/pom.xml" />
+        <option value="$PROJECT_DIR$/mavenweb/pom.xml" />
+        <option value="$PROJECT_DIR$/maven02/pom.xml" />
+        <option value="$PROJECT_DIR$/../travel/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis01/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis02/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_02_exam/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis03test1/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_03_exam/pom.xml" />
+        <option value="$PROJECT_DIR$/myspring_01/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring_01_exam/pom.xml" />
+        <option value="$PROJECT_DIR$/mysring02/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_02_case/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_02_case - 1/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_02_annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring_03_AOP/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring_03_tx/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_04_jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_04_work/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_04_xml/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc_myday01/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC_01_exam/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC_01_exam1/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC_01_base/pom.xml" />
+        <option value="$PROJECT_DIR$/springwork/pom.xml" />
+        <option value="$PROJECT_DIR$/maven_parent/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_exam/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="9.0" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://admin:444/svn/ssm_travel/MY_MAVEN" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+  <component name="WebServicesPlugin" addRequiredLibraries="true" />
+</project>

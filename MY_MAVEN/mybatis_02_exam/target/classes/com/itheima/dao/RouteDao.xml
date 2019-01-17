@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.RouteDao">
+    <!--查询所有旅游线路-->
+    <select id="findAll" resultType="com.itheima.domain.Route">
+        select * from tab_route
+    </select>
+
+    <!--根据用户输入的字符串,模糊查询线路-->
+    <select id="findLikeName" resultType="com.itheima.domain.Route" parameterType="java.lang.String">
+        select * from tab_route where rname like #{rname}
+    </select>
+
+     <!--根据分类id查询线路信息-->
+    <select id="findByCid" resultType="com.itheima.domain.Route" parameterType="java.lang.Integer">
+         select * from tab_route where cid = #{cid}
+    </select>
+
+    <!--根据线路id查询线路详情-->
+    <select id="findByRid" resultType="com.itheima.domain.Route" parameterType="java.lang.Integer" >
+        select * from tab_route where rid = #{rid}
+    </select>
+
+    <!--查询数据库中的所有线路数量-->
+    <select id="findTotalCount" resultType="java.lang.Integer">
+        select count(*) from tab_route
+    </select>
+
+    <!--查询数据库中,线路名称包含rname的线路数量-->
+    <select id="findTotalCount1" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(*) from tab_route where rname like  #{rname}
+    </select>
+
+    <!--查询数据库中,查询某一个分类下的线路数量-->
+    <select id="findTotalCount2" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select count(*) from tab_route where cid = #{cid}
+    </select>
+</mapper>

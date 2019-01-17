@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <!--连接池对象 DataSource dataSource = JdbcUtils.getDataSource()-->
+    <!--<domain id="dataSource" class="com.itheima.utils.JdbcUtils" factory-method="getDataSource" ></domain>-->
+        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSourceFactory" factory-method="createDataSource">
+            <!--给静态工厂对象提供方法-->
+            <constructor-arg name="properties">
+                <props>
+                    <prop key="driverClassName">com.mysql.jdbc.Driver</prop>
+                    <prop key="url">jdbc:mysql://localhost:3306/travel</prop>
+                    <prop key="username">root</prop>
+                    <prop key="password">ROOT</prop>
+                </props>
+            </constructor-arg>
+        </bean>
+
+        <!--JdbcTemplate对象
+                内部需要传递参数()
+        -->
+        <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+           <constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+        </bean>
+
+        <!-- UserDaoImpl 对象-->
+        <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl">
+            <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+        </bean>
+
+        <!--UserServiceImpl-->
+        <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" >
+            <property name="userDao" ref="userDao"></property>
+        </bean>
+
+    <!--配置注解扫描,扫描指定包下的注解-->
+        <context:component-scan base-package="com.itheima"></context:component-scan>
+        </beans>
